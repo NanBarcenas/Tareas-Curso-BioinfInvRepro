@@ -1,0 +1,44 @@
+---
+title: "Tarea con paquete phangorn"
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+library(phangorn)
+```
+
+##
+
+Este es un documento que detalla como construir un arbol de distancias de NJ utilizando el paquete phangorn.
+
+
+
+## Importo mi aliniamiento.
+
+```
+pentas<-read.phyDat(file.path(fdir="aliniamiento_fasta"), format = "fasta", type = "DNA")
+
+```
+
+## Genero una matriz de distancias
+
+```
+
+dsmtx<-dist.ml(pentas)
+
+```
+
+## Creo arbol de NJ con la Matriz
+
+```
+
+treeNJ<-NJ(dsmtx)
+
+```
+
+## Para ver mi arbol 
+
+```
+plot(treeNJ)
+```
+
